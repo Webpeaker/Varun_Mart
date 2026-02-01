@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ABC Super Mart - Section</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #d62828;
+      --deep: #8c1c1c;
+      --line: #f28c8c;
+      --brand-blue: #0f2e66;
+    }
+
+    /* ----- NAV ----- */
+    .abc-nav {
+      background: linear-gradient(90deg, #ffffff 0%, #ffffff 60%, #f9f2f6 100%);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .06);
+    }
+
+    .abc-brand {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      text-decoration: none;
+    }
+
+    .abc-logo {
+      width: 44px;
+      height: 34px;
+      border-radius: 10px;
+      background: #ffe5e5;
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-size: 1.1rem;
+      flex: 0 0 auto;
+    }
+
+    .btn-primary {
+      --bs-btn-bg: var(--primary);
+      --bs-btn-border-color: var(--primary);
+      --bs-btn-hover-bg: var(--deep);
+      --bs-btn-hover-border-color: var(--deep);
+      --bs-btn-active-bg: var(--deep);
+      --bs-btn-active-border-color: var(--deep);
+    }
+
+    .abc-brand-text {
+      font-size: 1.1rem;
+      letter-spacing: .2px;
+      color: #111;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .abc-brand-text small {
+      font-weight: 700;
+      color: #ff3b30;
+      margin-left: 2px;
+    }
+
+    .abc-nav .nav-link {
+      font-weight: 500;
+      color: #2a2a2a;
+      position: relative;
+      transition: color .2s ease;
+    }
+
+    .abc-nav .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .abc-nav .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width .2s ease;
+    }
+
+    .abc-nav .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .abc-contact {
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      padding: .45rem .9rem;
+      box-shadow: 0 10px 22px rgba(214, 40, 40, .18);
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    .abc-contact:hover {
+      background: var(--deep);
+      border-color: var(--deep);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(214, 40, 40, .22);
+    }
+
+    /* ----- HERO ----- */
+    .abc-hero {
+      position: relative;
+      min-height: 250px;
+      overflow: hidden;
+      background:
+        /* left fade like screenshot */
+
+        url("background.png") center/cover no-repeat;
+    }
+
+    .abc-hero-inner {
+      position: relative;
+      padding: 3.2rem 0;
+    }
+
+    .abc-title {
+      font-size: clamp(1.8rem, 3.6vw, 3rem);
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--brand-blue), var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0;
+    }
+
+    .abc-underline {
+      width: 210px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--brand-blue));
+      margin-top: .75rem;
+    }
+
+    .abc-learn {
+      margin-top: 1.4rem;
+      background: var(--primary);
+      border-color: var(--primary);
+      font-weight: 700;
+      padding: .6rem 1.3rem;
+      border-radius: .35rem;
+      box-shadow: 0 12px 24px rgba(214, 40, 40, .22);
+      text-transform: uppercase;
+      font-size: .8rem;
+      letter-spacing: .2px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .abc-learn:hover {
+      background: var(--deep);
+      border-color: var(--deep);
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(214, 40, 40, .28);
+    }
+
+    /* better spacing on large */
+    @media (min-width: 992px) {
+      .abc-hero {
+        min-height: 700px;
+      }
+
+      .abc-hero-inner {
+        padding: 3.8rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR (SECTION ONLY) -->
+  <nav class="navbar navbar-expand-lg abc-nav sticky-top">
+    <div class="container py-1">
+
+      <a class="abc-brand navbar-brand" href="#">
+        <img src="varunmart.png" height="64" alt="Varun Mart logo">
+
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#abcNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="abcNav">
+        <ul class="navbar-nav mx-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Brands</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Galleries</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2 ms-lg-2">
+          <a class="btn btn-primary abc-contact" href="#">Contact</a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO (SECTION ONLY) -->
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script></script>
+</body>
+
+</html>
