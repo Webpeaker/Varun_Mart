@@ -17,6 +17,7 @@
       --deep: #8c1c1c;
       --line: #f28c8c;
       --brand-blue: #0f2e66;
+      --hero-blue: #3f6fc6;
     }
 
     /* ----- NAV ----- */
@@ -68,10 +69,11 @@
     }
 
     .abc-nav .nav-link {
-      font-weight: 500;
+      font-weight: 700;
       color: #2a2a2a;
       position: relative;
       transition: color .2s ease;
+      font-size: 1.05rem;
     }
 
     .abc-nav .nav-link:hover {
@@ -97,10 +99,10 @@
       border-radius: 999px;
       font-weight: 700;
       letter-spacing: .3px;
-      padding: .45rem .9rem;
+      padding: .35rem .8rem;
       box-shadow: 0 10px 22px rgba(214, 40, 40, .18);
       text-transform: uppercase;
-      font-size: .78rem;
+      font-size: .8rem;
     }
 
     .abc-contact:hover {
@@ -113,67 +115,215 @@
     /* ----- HERO ----- */
     .abc-hero {
       position: relative;
-      min-height: 250px;
+      height: 52vh;
+      min-height: 300px;
+      max-height: 560px;
       overflow: hidden;
       background:
         /* left fade like screenshot */
-
         url("background.png") center/cover no-repeat;
     }
 
     .abc-hero-inner {
       position: relative;
-      padding: 3.2rem 0;
+      z-index: 1;
+      height: 100%;
+      padding: clamp(1.2rem, 2.8vw, 2.6rem) 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .abc-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255, 255, 255, .96) 0%, rgba(255, 255, 255, .85) 42%, rgba(255, 255, 255, .35) 72%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
     }
 
     .abc-title {
-      font-size: clamp(1.8rem, 3.6vw, 3rem);
+      font-size: clamp(2rem, 4.4vw, 3.2rem);
       font-weight: 800;
-      background: linear-gradient(90deg, var(--brand-blue), var(--primary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: var(--brand-blue);
+      letter-spacing: .3px;
       margin: 0;
     }
 
-    .abc-underline {
-      width: 210px;
-      height: 4px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--primary), var(--brand-blue));
-      margin-top: .75rem;
-    }
-
     .abc-learn {
-      margin-top: 1.4rem;
-      background: var(--primary);
-      border-color: var(--primary);
+      margin-top: .8rem;
+      background: var(--hero-blue);
+      border-color: var(--hero-blue);
       font-weight: 700;
-      padding: .6rem 1.3rem;
-      border-radius: .35rem;
-      box-shadow: 0 12px 24px rgba(214, 40, 40, .22);
+      padding: .5rem 1.1rem;
+      border-radius: .3rem;
+      box-shadow: 0 10px 20px rgba(63, 111, 198, .25);
       text-transform: uppercase;
-      font-size: .8rem;
-      letter-spacing: .2px;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      font-size: .75rem;
+      letter-spacing: .3px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
     }
 
     .abc-learn:hover {
-      background: var(--deep);
-      border-color: var(--deep);
+      background: #2f5db6;
+      border-color: #2f5db6;
       transform: translateY(-1px);
-      box-shadow: 0 16px 30px rgba(214, 40, 40, .28);
+      box-shadow: 0 14px 26px rgba(63, 111, 198, .32);
     }
 
-    /* better spacing on large */
-    @media (min-width: 992px) {
-      .abc-hero {
-        min-height: 700px;
+    .abc-feature-strip {
+      margin-top: -78px;
+      padding-bottom: 1.2rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    .abc-feature-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, .08);
+      padding: 1.35rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, .04);
+    }
+
+    .abc-feature-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: transparent;
+      color: var(--brand-blue);
+      flex: 0 0 auto;
+      margin-bottom: .45rem;
+    }
+
+    .abc-feature-icon img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .abc-feature-text {
+      font-size: .85rem;
+      font-weight: 700;
+      color: #2a2a2a;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: .2px;
+    }
+
+    .abc-about {
+      padding: 2.6rem 0 1.8rem;
+      background: #fff;
+    }
+
+    .abc-about-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--brand-blue);
+      margin-bottom: .5rem;
+    }
+
+    .abc-about-text {
+      color: #6b6b6b;
+      font-size: .95rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .abc-about-image {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
+    }
+
+    .abc-about-left {
+      padding-right: 1.5rem;
+    }
+
+    .abc-about-right {
+      padding-left: 1.5rem;
+      height: 100%;
+    }
+
+    .abc-brands {
+      background: #fff9d6;
+      padding: 1.8rem 0 2.2rem;
+    }
+
+    .abc-brands-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--brand-blue);
+      line-height: 1.2;
+    }
+
+    .abc-brand-logos {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 1.2rem;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .abc-brand-logos img {
+      max-width: 90px;
+      width: 100%;
+      height: auto;
+      filter: saturate(1.05);
+    }
+
+    @media (max-width: 991.98px) {
+      .abc-about-image {
+        min-height: 220px;
       }
 
-      .abc-hero-inner {
-        padding: 3.8rem 0;
+      .abc-about-left,
+      .abc-about-right {
+        padding-left: 0;
+        padding-right: 0;
       }
+
+      .abc-brand-logos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .abc-about {
+        padding: 2.2rem 0 1.4rem;
+      }
+
+      .abc-about-image {
+        min-height: 200px;
+      }
+
+      .abc-brand-logos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* responsive tuning */
+    @media (max-width: 575.98px) {
+      .abc-hero {
+        min-height: 360px;
+      }
+
+      .abc-feature-strip {
+        margin-top: -52px;
+      }
+    }
+
+    .navbar .container {
+      padding-top: .1rem;
+      padding-bottom: .1rem;
     }
   </style>
 </head>
@@ -185,7 +335,7 @@
     <div class="container py-1">
 
       <a class="abc-brand navbar-brand" href="#">
-        <img src="varunmart.png" height="64" alt="Varun Mart logo">
+        <img src="varunmart.png" height="78" alt="Varun Mart logo">
 
       </a>
 
@@ -211,6 +361,91 @@
   </nav>
 
   <!-- HERO (SECTION ONLY) -->
+  <section class="abc-hero">
+    <div class="abc-hero-overlay"></div>
+    <div class="abc-hero-inner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="abc-title">Varun Mart</h1>
+            <p class="mt-2 mb-3 text-muted fw-semibold">Varun Mart — The Departmental Store</p>
+            <a class="btn btn-primary abc-learn" href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE BOXES -->
+  <section class="abc-feature-strip">
+    <div class="container">
+      <div class="row g-3 g-lg-4">
+        <div class="col-6 col-lg-3">
+          <div class="abc-feature-card">
+            <div class="abc-feature-icon"><img src="owner.png" alt="Owner"></div>
+            <div class="abc-feature-text">Our Owner</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="abc-feature-card">
+            <div class="abc-feature-icon"><img src="brand.png" alt="Top brands"></div>
+            <div class="abc-feature-text">Top Brands</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="abc-feature-card">
+            <div class="abc-feature-icon"><img src="abouts.png" alt="About us"></div>
+            <div class="abc-feature-text">About Us</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="abc-feature-card">
+            <div class="abc-feature-icon"><img src="location.png" alt="Our location"></div>
+            <div class="abc-feature-text">Our Location</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="abc-about">
+    <div class="container">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6 abc-about-left">
+          <div class="abc-about-title">About Us</div>
+          <div class="abc-about-text">
+            Welcome to Varun Mart! We are a one-stop destination for all your grocery and household needs, delivering quality, value, and a friendly shopping experience.
+          </div>
+          <a class="btn btn-primary abc-learn" href="#">Read More</a>
+        </div>
+        <div class="col-lg-6 abc-about-right">
+          <img class="abc-about-image" src="varun.jpg" alt="Varun Mart store">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="abc-brands">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-3">
+          <div class="abc-brands-title">Top Brands<br>We Carry</div>
+        </div>
+        <div class="col-lg-9">
+          <div class="abc-brand-logos">
+            <img src="brand.png" alt="Brand logo">
+            <img src="brand.png" alt="Brand logo">
+            <img src="brand.png" alt="Brand logo">
+            <img src="brand.png" alt="Brand logo">
+            <img src="brand.png" alt="Brand logo">
+            <img src="brand.png" alt="Brand logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
   <!-- Bootstrap JS -->
